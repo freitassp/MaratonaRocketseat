@@ -1,14 +1,14 @@
 const express = require("express")
 const server = express()
+const routes = require("./routes")
+
+//usando template engine
+server.set('view engine', 'ejs');
 
 //habilitar arquivos statics
 server.use(express.static("public"))
 
-//request, response
-server.get('/', (request, response) => {
-    //console.log(__dirname + "/views/index.html")
-    return response.sendFile(__dirname + "/views/index.html")
-})
+// routes
+server.use(routes)
 
-server.listen(3000, () => console.log('rodando'))
-
+server.listen(3000, () => console.log('Server is running 🚀'))
