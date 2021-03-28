@@ -1,8 +1,8 @@
 const express = require("express")
-
-//const { request } = require("node:http")
 const server = express()
 
+//habilitar arquivos statics
+server.use(express.static("public"))
 
 //request, response
 server.get('/', (request, response) => {
